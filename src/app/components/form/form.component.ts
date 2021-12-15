@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-form',
@@ -8,10 +8,13 @@ import {FormGroup} from "@angular/forms";
 })
 export class FormComponent  { //not implementing on init
   basicForm = new FormGroup({
-
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   });
-
 
   constructor() { }
 
+  submit() {
+    console.log(this.basicForm.value);
+  }
 }

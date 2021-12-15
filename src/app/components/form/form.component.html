@@ -1,3 +1,8 @@
-<form [formGroup]="basicForm" (submit)="$any($event)">
-
+<form [formGroup]="basicForm" (ngSubmit)="submit()">
+  <label for="username">Username</label>
+  <input id="username" formControlName="username">
+  <label for="password">Password</label>
+  <input id="password" formControlName="password">
+  <button type="submit" [disabled]="!basicForm.valid">Login</button>
 </form>
+<button type="button">Register</button>
