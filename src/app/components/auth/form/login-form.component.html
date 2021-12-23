@@ -1,0 +1,21 @@
+<main class="form__container">
+<mat-card class="form__inputs">
+  <mat-toolbar class="form__header" color="primary">WELCOME TO COCOJAMBO</mat-toolbar>
+  <form class="form" [formGroup]="signInForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" class="form__input">
+      <mat-label>Username</mat-label>
+      <input matInput type="email" formControlName="username" placeholder="Username">
+      <mat-error *ngIf="checkFormRequiredInput('username')">Username cannot be empty</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="form__input">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" placeholder="Password">
+      <mat-error *ngIf="checkFormRequiredInput('password')">Password cannot be empty</mat-error>
+    </mat-form-field>
+    <div class="form__button">
+      <button mat-raised-button color="warn" type="submit"  [disabled]="!signInForm.valid">Login</button>
+      <a mat-raised-button (click)="forwardToMainPage()">Registration</a>
+    </div>
+  </form>
+</mat-card>
+</main>

@@ -1,0 +1,62 @@
+.form {
+  padding: 20px;
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.form__inputs {
+  padding: 0;
+  margin: auto;
+  min-width: 18vw;
+  min-height: 35vh;
+}
+
+.form__header {
+  display: flex;
+  justify-content: center;
+}
+
+.form__input {
+  display: block;
+  justify-content: center;
+}
+
+.form__submit {
+  width: 160px;
+  height: 40px;
+  background: rgb(255, 0, 0);
+  border-radius: 9px;
+  border: none;
+}
+
+.form__submit:focus {
+  background: rgb(243, 58, 58);
+}
+
+.form__submit:disabled {
+  background: rgb(100, 40, 40);
+}
+
+.form__registration {
+  font-weight: 500;
+  padding-left: 15px;
+  font-size: 20px;
+  line-height: 15px;
+}
+
+.form__button {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 15px;
+}
+
+.mat-error {
+  display: flex;
+  justify-content: center;
+}
