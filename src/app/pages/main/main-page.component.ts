@@ -1,29 +1,29 @@
 import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {RTCConstraintsService} from "../../service/rtcconstraints.service";
 
-const constraints = {
-  audio: true,
-  video: {width: 780, height: 540},
-}
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements AfterViewInit {
-
-  private localStream?: MediaStream;
   @ViewChild('local_video') private localVideo!: ElementRef;
 
-  //TODO change implementation
-  private async setSomething(): Promise<void> {
-    this.localStream = await navigator.mediaDevices.getUserMedia(constraints);
-    this.localVideo.nativeElement.srcObject = this.localStream;
+  constructor(private rtc: RTCConstraintsService) { }
+
+  private initMediaStream(){
+    this.rtc.requestMediaDevices().then(r => this.localVideo.nativeElement.srcObject = r);
   }
 
-  //TODO empty promise return
   ngAfterViewInit(): void {
-    this.setSomething();
+    this.initMediaStream();
   }
 
+  public continueVideo() {
+    this.rtc.continueVideoCall();
+  }
+
+  public pauseVideo() {
+    this.rtc.pauseVideoCall();
+  }
 }

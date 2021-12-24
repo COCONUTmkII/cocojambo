@@ -11,9 +11,16 @@ const constraints = {
 export class RTCConstraintsService {
   private basicStream?: MediaStream;
 
-  public async requestMediaDevices() {
+  public async requestMediaDevices(): Promise<MediaStream> {
     this.basicStream = await navigator.mediaDevices.getUserMedia(constraints);
     return this.basicStream;
   }
 
+  public pauseVideoCall(): void {
+    this.basicStream?.getTracks().forEach(track => track.enabled = false);
+  }
+
+  public continueVideoCall(): void {
+    this.basicStream?.getTracks().forEach(track => track.enabled = true);
+  }
 }
