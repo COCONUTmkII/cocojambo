@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
-import {RTCConstraintsService} from "../../service/rtcconstraints.service";
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { RTCConstraintsService } from "../../service/rtcconstraints.service";
 
 @Component({
   selector: 'app-main-page',
