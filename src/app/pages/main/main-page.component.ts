@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { RTCConstraintsService } from "../../service/rtcconstraints.service";
+import { RTCConstraintsService } from "../../service/rtc/rtcconstraints.service";
 
 @Component({
   selector: 'app-main-page',
@@ -8,6 +8,7 @@ import { RTCConstraintsService } from "../../service/rtcconstraints.service";
 })
 export class MainPageComponent implements AfterViewInit {
   @ViewChild('local_video') private localVideo!: ElementRef;
+  @ViewChild('remote_video') private remoteVideo!: ElementRef;
 
   constructor(private rtc: RTCConstraintsService) { }
 
@@ -21,9 +22,11 @@ export class MainPageComponent implements AfterViewInit {
 
   public continueVideo() {
     this.rtc.continueVideoCall();
+    this.localVideo.nativeElement.srcObject = this.rtc.getBasicStream;
   }
 
   public pauseVideo() {
     this.rtc.pauseVideoCall();
+    this.localVideo.nativeElement.srcObject = undefined;
   }
 }
