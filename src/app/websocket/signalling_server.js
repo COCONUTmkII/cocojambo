@@ -15,9 +15,10 @@ wss.on('connection', ws => {
   console.log(`Client connected. Total connected clients: ${wss.clients.size}`);
 
   ws.on('message', message => {
-    // msg = JSON.parse(message);
-    console.log(message + "\n\n");
-    wss.broadcast(ws, message);
+    let msg = JSON.parse(message);
+    let s = JSON.stringify(msg);
+    console.log(s + "\n\n");
+    wss.broadcast(ws, s);
   });
   ws.on('close', ws=> {
     console.log(`Client disconnected. Total connected clients: ${wss.clients.size}`);
