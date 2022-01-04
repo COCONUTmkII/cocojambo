@@ -6,11 +6,11 @@
   </mat-grid-tile>
   <mat-grid-tile>
     <p class="video-description">Remote: </p>
-    <video #local_video [autoplay]="true" [muted]="true"></video>
+    <video #remote_video [autoplay]="true" [muted]="true"></video>
   </mat-grid-tile>
 </mat-grid-list>
 <button mat-raised-button (click)="continueVideo()" color="primary">StartLocal</button>
 <button mat-raised-button (click)="pauseVideo()" color="primary">StopLocal</button>
-<button mat-raised-button color="primary">Call</button>
-<button mat-raised-button color="primary">Hangup</button>
+<button mat-raised-button (click)="call()" color="primary">Call</button>
+<button mat-raised-button (click)="hangUp()" color="primary">Hangup</button>
 </div>
